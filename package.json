@@ -5,6 +5,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "dev": "ng serve --port=4205",
     "server": "node server",
     "dev-server": "nodemon server",
     "build": "ng build",
@@ -49,6 +50,7 @@
     "karma-coverage-istanbul-reporter": "^1.2.1",
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
+    "node-sass": "^4.5.3",
     "nodemon": "^1.12.1",
     "protractor": "~5.1.2",
     "ts-node": "~3.0.4",
