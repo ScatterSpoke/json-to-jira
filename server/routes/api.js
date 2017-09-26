@@ -1,12 +1,7 @@
 const express = require('express');
 const router = express.Router();
-
-// Error handling
-const sendError = (err, res) => {
-  response.status = 501;
-  response.message = typeof err == 'object' ? err.message : err;
-  res.status(501).json(response);
-};
+const tokens = require('./tokens');
+const batchIssues = require('./issues').batchIssues;
 
 // Response handling
 let response = {
@@ -15,9 +10,10 @@ let response = {
   message: null
 };
 
-// Get users
-router.get('/users', (req, res) => {
-  res.json(response);
-});
+// Create Custom Token
+router.post('/tokens', tokens);
+
+// Create JIRA issue
+router.post('/issues/batch', batchIssues);
 
 module.exports = router;
