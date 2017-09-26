@@ -11,7 +11,7 @@ function buildPromise(callback) {
 
 function batchIssues(req, res) {
   let issues = null, defaultProject,
-    projectsPromise = null, issuesPromise = null, rapidViewPromise, taskIssue,
+    projectsPromise = null, issuesPromise = null, taskIssue,
     jProjects, jIssues, jRapidView;
 
   // jiraClient.listProjects((e,v)=>  );
@@ -24,32 +24,40 @@ function batchIssues(req, res) {
       jProjects = results[0];
       jIssues = results[1];
       defaultProject = jProjects[0];
-      rapidViewPromise = buildPromise((c)=> jiraClient.findRapidView(defaultProject.name, c));
-      rapidViewPromise.then((rapidView)=> {
-        console.log(rapidView);
-      });
-
       taskIssue = jIssues.filter((iss)=> iss.name === 'Task')[0] || jIssues[0];
-      /*
-      issues.forEach((issue)=>{
-        jiraClient.addNewIssue({
-            fields: {
-              summary: issue.text,
-              project: {
-                id: defaultProject.id
-              },
-              issuetype: {
-                id: taskIssue.id
-              }
-            }
-          },
-          (err, val)=> {
-            console.log(err, val);
+
+      validateToken(req, res, '1.0').then((jc) => {
+        buildPromise((c)=> jc.listRapidViews(c)).then((rapidViews)=> {
+          jRapidView = rapidViews[0];
+          buildPromise((c)=> jc.getLastSprintForRapidView(jRapidView.id, c)).then((sprint)=> {
+            let promises =
+              issues.map((issue)=>{
+                return buildPromise((c)=> {
+                  jiraClient.addNewIssue({
+                    fields: {
+                      summary: issue.text,
+                      project: {
+                        id: defaultProject.id
+                      },
+                      issuetype: {
+                        id: taskIssue.id
+                      }
+                    }
+                  }, c);
+                });
+              });
+            Promise.all(promises).then((jIssues) => {
+              jIssues.forEach((iss)=> {
+                jc.addIssueToSprint(iss.id, sprint.id, (err, value)=> {
+                  console.log(err, value);
+                });
+              });
+              res.status(201).json({ issues: jIssues });
+            });
           });
+        });
       });
-      */
     });
-    res.json({ issues: issues });
   });
 }
 

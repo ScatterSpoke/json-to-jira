@@ -3,15 +3,15 @@ const getJiraClient = require('./jiraHandler').getJiraClient;
 const uid = require('rand-token').uid;
 const auth = require('basic-auth');
 
-let currentTokens = {
-};
+let currentTokens = {};
 
 /**
  * @param {Request} req
  * @param {Response} res
+ * @param {String} version
  * @return {Promise<JiraApi>}
  */
-function validateToken(req, res) {
+function validateToken(req, res, version = '2') {
   let token = req.get('X-Auth-Token');
   let hashCredentials = currentTokens[token];
   let obj;
@@ -19,7 +19,7 @@ function validateToken(req, res) {
   return new Promise((resolve, reject)=> {
     if (hashCredentials) {
       let credentials = auth.parse('Basic '+hashCredentials);
-      resolve(getJiraClient(credentials.name, credentials.pass));
+      resolve(getJiraClient(credentials.name, credentials.pass, version));
     } else {
       obj = { message: 'Invalid Token' };
       reject(obj);
