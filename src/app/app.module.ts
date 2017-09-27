@@ -14,13 +14,15 @@ import 'hammerjs';
 import { routes } from './app.routes';
 import {FormsModule} from '@angular/forms';
 import {AuthenticationService} from './services/authentication.service';
-import {AuthGuard} from "./guards/auth.guard";
+import {AuthGuard} from './guards/auth.guard';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    NavbarComponent
   ],
   imports: [
     FormsModule,

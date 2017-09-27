@@ -10,15 +10,8 @@ import {Router} from "@angular/router";
 export class HomeComponent implements OnInit {
 
   constructor(
-    private authenticationService: AuthenticationService,
-    private router: Router,
   ) { }
 
   ngOnInit() {
-  }
-
-  logout() {
-    this.authenticationService.logout();
-    this.router.navigate(['/login']);
   }
 }
