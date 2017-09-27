@@ -7,8 +7,12 @@ import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import { MaterialModule } from '@angular/material';
-import { MdButtonModule, MdCardModule, MdMenuModule,
-  MdToolbarModule, MdIconModule, MatProgressSpinnerModule } from '@angular/material';
+import {
+  MdButtonModule, MdCardModule, MdMenuModule,
+  MdToolbarModule, MdIconModule, MatProgressSpinnerModule,
+  MatButtonModule, MatInputModule, MatIconModule, MatListModule,
+  MatSnackBarModule
+} from '@angular/material';
 
 import 'hammerjs';
 import { routes } from './app.routes';
@@ -16,13 +20,16 @@ import {FormsModule} from '@angular/forms';
 import {AuthenticationService} from './services/authentication.service';
 import {AuthGuard} from './guards/auth.guard';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { IssuesComponent } from './components/issues/issues.component';
+import {IssuesService} from "./services/issues.service";
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
-    NavbarComponent
+    NavbarComponent,
+    IssuesComponent
   ],
   imports: [
     FormsModule,
@@ -34,11 +41,17 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     MdMenuModule,
     MdToolbarModule,
     MdIconModule,
+    MatSnackBarModule,
     MatProgressSpinnerModule,
+    MatButtonModule,
+    MatInputModule,
+    MatIconModule,
+    MatListModule,
     routes,
   ],
   providers: [
     AuthenticationService,
+    IssuesService,
     AuthGuard,
   ],
   bootstrap: [AppComponent]

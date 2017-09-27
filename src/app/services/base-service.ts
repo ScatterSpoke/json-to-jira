@@ -6,8 +6,11 @@ export class BaseService {
     return `${environment.apiUrl}${path}`;
   }
 
-  getPostOptions(): RequestOptions {
+  getPostOptions(token = null): RequestOptions {
     const headers = new Headers({ 'Content-Type': 'application/json' });
+    if (token !== null) {
+      headers.append('X-Auth-Token', token);
+    }
     return new RequestOptions({ headers: headers });
   }
 }
