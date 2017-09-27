@@ -1,3 +1,27 @@
-<p>
-  login works!
-</p>
+<div class="login">
+  <header>
+    <h1>JIRA Tasks</h1>
+  </header>
+  <form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm">
+    <div class="group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
+      <input type="text" name="username" [(ngModel)]="model.username" #username="ngModel" required><span class="highlight"></span><span class="bar"></span>
+      <label>Username</label>
+      <div *ngIf="f.submitted && !username.valid" class="help-block">Username is required</div>
+    </div>
+    <div class="group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+      <input type="password" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel" required><span class="highlight"></span><span class="bar"></span>
+      <label>Password</label>
+      <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
+    </div>
+    <div *ngIf="error" class="group has-error block">
+      <div class="help-block">{{error}}</div>
+    </div>
+    <div class="group block" *ngIf="loading">
+      <md-spinner></md-spinner>
+    </div>
+    <button type="submit" class="button buttonBlue">
+      Subscribe
+      <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
+    </button>
+  </form>
+</div>

@@ -1,9 +1,8 @@
 <md-toolbar color="primary">
-  <span>App Name</span>
+  <span>Jira Tasks</span>
   <span class="example-spacer"></span>
-  <button md-button [mdMenuTriggerFor]="appMenu"><md-icon>menu</md-icon> Menu</button>
+  <button md-button [mdMenuTriggerFor]="appMenu"><md-icon>menu</md-icon></button>
 </md-toolbar>
 <md-menu #appMenu="mdMenu">
-  <button md-menu-item> Settings </button>
-  <button md-menu-item> Contact </button>
+  <button (click)="logout()" md-menu-item> Logout </button>
 </md-menu>
