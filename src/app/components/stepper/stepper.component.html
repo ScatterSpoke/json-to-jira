@@ -3,15 +3,13 @@
     <ng-template mdStepLabel>Issues</ng-template>
     <app-issues [formGroup]="issuesFormGroup"></app-issues>
   </md-step>
-  <md-step [stepControl]="secondFormGroup">
+  <md-step [stepControl]="loginFormGroup">
     <ng-template mdStepLabel>Credentials</ng-template>
-    <app-login [formGroup]="secondFormGroup"></app-login>
+    <app-login [formGroup]="loginFormGroup"></app-login>
   </md-step>
   <md-step>
     <ng-template mdStepLabel>Choose Project</ng-template>
-    <div>
-      <button md-button mdStepperPrevious>Back</button>
-    </div>
+    <app-projects [formGroup]="loginFormGroup"></app-projects>
   </md-step>
   <md-step>
     <ng-template mdStepLabel>Done</ng-template>

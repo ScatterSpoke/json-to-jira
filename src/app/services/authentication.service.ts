@@ -7,16 +7,27 @@ import {IUser} from '../models/i-user';
 import {ITokenData} from '../models/i-token-data';
 
 import 'rxjs/add/operator/map';
+import {ICredentials} from "../models/i-credentials";
+import {Observer} from "rxjs/Observer";
 
 @Injectable()
 export class AuthenticationService extends BaseService {
   public tokenData: ITokenData;
   public currentUser: IUser;
+  public currentAuth: Observable<boolean>;
+  private authObserver: Observer<boolean>;
 
   constructor(private http: Http) {
     super();
     // set token if saved in local storage
     this.tokenData = JSON.parse(localStorage.getItem(USER_DATA));
+    this.currentAuth = Observable.create(observer => this.authObserver = observer );
+  }
+
+  processCredentials(credentials: ICredentials) {
+    this.login(credentials.username, credentials.password)
+      .subscribe((result => this.authObserver.next(result)),
+        () => this.authObserver.next(false));
   }
 
   getCurrentUser(): Observable<IUser> {

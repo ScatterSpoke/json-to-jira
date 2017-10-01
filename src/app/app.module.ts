@@ -23,6 +23,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { IssuesComponent } from './components/issues/issues.component';
 import { IssuesService } from './services/issues.service';
 import { StepperComponent } from './components/stepper/stepper.component';
+import { ProjectsComponent } from './components/projects/projects.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { StepperComponent } from './components/stepper/stepper.component';
     HomeComponent,
     NavbarComponent,
     IssuesComponent,
-    StepperComponent
+    StepperComponent,
+    ProjectsComponent
   ],
   imports: [
     FormsModule,

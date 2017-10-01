@@ -9,15 +9,16 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 export class StepperComponent implements OnInit {
   isLinear = true;
   issuesFormGroup: FormGroup;
-  secondFormGroup: FormGroup;
+  loginFormGroup: FormGroup;
 
   constructor(private _formBuilder: FormBuilder) { }
 
   ngOnInit() {
     this.issuesFormGroup = this._formBuilder.group({
     });
-    this.secondFormGroup = this._formBuilder.group({
-      secondCtrl: ['', Validators.required]
+    this.loginFormGroup = this._formBuilder.group({
+      username: ['', Validators.required],
+      password: ['', Validators.required]
     });
   }
 }

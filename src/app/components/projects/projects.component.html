@@ -1,0 +1,8 @@
+<md-spinner [class.hidden]="authorized"></md-spinner>
+<form [class.hidden]="!authorized" [formGroup]="formGroup">
+  <div> Select project </div>
+  <div class="actions">
+    <button md-raised-button color="primary" mdStepperNext>Next</button>
+    <button #backButton md-button mdStepperPrevious>Back</button>
+  </div>
+</form>

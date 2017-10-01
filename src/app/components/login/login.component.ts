@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {AuthenticationService} from '../../services/authentication.service';
 import {Utils} from '../../models/utils';
+import {FormBuilder, FormGroup} from '@angular/forms';
+import {ICredentials} from "../../models/i-credentials";
 
 @Component({
   selector: 'app-login',
@@ -12,6 +14,7 @@ export class LoginComponent implements OnInit {
   model: any = {};
   loading = false;
   error = '';
+  @Input() formGroup: FormGroup;
 
   constructor(
     private router: Router,
@@ -19,7 +22,6 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    Utils.setupLoginForm();
   }
 
   displayAuthError() {
@@ -27,16 +29,8 @@ export class LoginComponent implements OnInit {
     this.loading = false;
   }
 
-  login() {
+  login(e) {
     this.loading = true;
-    this.authenticationService.login(this.model.username, this.model.password)
-      .subscribe(result => {
-        this.loading = false;
-        if (result === true) {
-          this.router.navigate(['/home']);
-        } else {
-          this.displayAuthError();
-        }
-      }, () => this.displayAuthError());
+    this.authenticationService.processCredentials(this.formGroup.value as ICredentials);
   }
 }
