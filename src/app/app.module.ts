@@ -11,17 +11,18 @@ import {
   MdButtonModule, MdCardModule, MdMenuModule,
   MdToolbarModule, MdIconModule, MatProgressSpinnerModule,
   MatButtonModule, MatInputModule, MatIconModule, MatListModule,
-  MatSnackBarModule
+  MatSnackBarModule, MatStepperModule
 } from '@angular/material';
 
 import 'hammerjs';
 import { routes } from './app.routes';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {AuthenticationService} from './services/authentication.service';
 import {AuthGuard} from './guards/auth.guard';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { IssuesComponent } from './components/issues/issues.component';
-import {IssuesService} from "./services/issues.service";
+import { IssuesService } from './services/issues.service';
+import { StepperComponent } from './components/stepper/stepper.component';
 
 @NgModule({
   declarations: [
@@ -29,10 +30,12 @@ import {IssuesService} from "./services/issues.service";
     LoginComponent,
     HomeComponent,
     NavbarComponent,
-    IssuesComponent
+    IssuesComponent,
+    StepperComponent
   ],
   imports: [
     FormsModule,
+    ReactiveFormsModule,
     BrowserModule,
     HttpModule,
     BrowserAnimationsModule,
@@ -47,6 +50,7 @@ import {IssuesService} from "./services/issues.service";
     MatInputModule,
     MatIconModule,
     MatListModule,
+    MatStepperModule,
     routes,
   ],
   providers: [

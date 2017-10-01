@@ -1,0 +1,23 @@
+<md-horizontal-stepper [linear]="isLinear">
+  <md-step [stepControl]="issuesFormGroup">
+    <ng-template mdStepLabel>Issues</ng-template>
+    <app-issues [formGroup]="issuesFormGroup"></app-issues>
+  </md-step>
+  <md-step [stepControl]="secondFormGroup">
+    <ng-template mdStepLabel>Credentials</ng-template>
+    <app-login [formGroup]="secondFormGroup"></app-login>
+  </md-step>
+  <md-step>
+    <ng-template mdStepLabel>Choose Project</ng-template>
+    <div>
+      <button md-button mdStepperPrevious>Back</button>
+    </div>
+  </md-step>
+  <md-step>
+    <ng-template mdStepLabel>Done</ng-template>
+    You are now done.
+    <div>
+      <button md-button mdStepperPrevious>Back</button>
+    </div>
+  </md-step>
+</md-horizontal-stepper>

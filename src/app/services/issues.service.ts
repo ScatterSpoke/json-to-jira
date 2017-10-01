@@ -8,6 +8,7 @@ import {Issue} from "../models/issue";
 
 @Injectable()
 export class IssuesService extends BaseService {
+  currentIssues: Issue[];
 
   constructor(
     private authenticationService: AuthenticationService,

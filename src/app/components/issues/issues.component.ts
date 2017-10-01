@@ -1,6 +1,6 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {Issue} from "../../models/issue";
-import {NgForm} from "@angular/forms";
+import {FormGroup, NgForm} from "@angular/forms";
 import {MdSnackBar} from "@angular/material";
 import {IssuesService} from "../../services/issues.service";
 
@@ -11,12 +11,11 @@ import {IssuesService} from "../../services/issues.service";
 })
 export class IssuesComponent implements OnInit {
   @ViewChild('f') form: NgForm;
+  @Input() formGroup: FormGroup;
   model: Issue = new Issue();
   issues: Issue[] = [];
-  exporting: boolean = false;
 
   constructor(
-    public snackBar: MdSnackBar,
     public issuesService: IssuesService,
   ) { }
 
@@ -35,22 +34,6 @@ export class IssuesComponent implements OnInit {
   }
 
   exportToJira() {
-    this.exporting = true;
-    this.issuesService.createBatch(this.issues).subscribe(() => {
-      this.finishExportToJira();
-      this.snackBar.open('Exported to JIRA', 'Close', {
-        duration: 2000,
-      });
-    }, () => {
-      this.finishExportToJira();
-      this.snackBar.open('Error sending to JIRA', 'Close', {
-        duration: 2000,
-      });
-    });
-  }
-
-  private finishExportToJira() {
-    this.issues.splice(0, this.issues.length);
-    this.exporting = false;
+    this.issuesService.currentIssues = this.issues;
   }
 }

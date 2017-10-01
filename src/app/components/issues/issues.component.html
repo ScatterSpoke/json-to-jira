@@ -23,8 +23,9 @@
     </button>
   </form>
   <br/>
-  <div class="actions">
-    <md-spinner *ngIf="exporting"></md-spinner>
-    <button [disabled]="exporting || issues.length === 0" (click)="exportToJira()" md-raised-button color="primary">Export to JIRA</button>
-  </div>
+  <form [formGroup]="formGroup">
+    <div class="actions">
+      <button mdStepperNext [disabled]="issues.length === 0" (click)="exportToJira()" md-raised-button color="primary">Export to JIRA</button>
+    </div>
+  </form>
 </div>
