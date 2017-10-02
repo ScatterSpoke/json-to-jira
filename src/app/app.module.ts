@@ -11,7 +11,7 @@ import {
   MdButtonModule, MdCardModule, MdMenuModule,
   MdToolbarModule, MdIconModule, MatProgressSpinnerModule,
   MatButtonModule, MatInputModule, MatIconModule, MatListModule,
-  MatSnackBarModule, MatStepperModule
+  MatSnackBarModule, MatStepperModule, MatSelectModule
 } from '@angular/material';
 
 import 'hammerjs';
@@ -24,6 +24,11 @@ import { IssuesComponent } from './components/issues/issues.component';
 import { IssuesService } from './services/issues.service';
 import { StepperComponent } from './components/stepper/stepper.component';
 import { ProjectsComponent } from './components/projects/projects.component';
+import { FinalStepComponent } from './components/final-step/final-step.component';
+import {ProjectsService} from "./services/projects.service";
+import {IssueTypesService} from "./services/issue-types.service";
+import {RapidViewsService} from "./services/rapid-views.service";
+import {SprintsService} from "./services/sprints.service";
 
 @NgModule({
   declarations: [
@@ -33,7 +38,8 @@ import { ProjectsComponent } from './components/projects/projects.component';
     NavbarComponent,
     IssuesComponent,
     StepperComponent,
-    ProjectsComponent
+    ProjectsComponent,
+    FinalStepComponent
   ],
   imports: [
     FormsModule,
@@ -53,12 +59,17 @@ import { ProjectsComponent } from './components/projects/projects.component';
     MatIconModule,
     MatListModule,
     MatStepperModule,
+    MatSelectModule,
     routes,
   ],
   providers: [
     AuthenticationService,
     IssuesService,
     AuthGuard,
+    ProjectsService,
+    IssueTypesService,
+    RapidViewsService,
+    SprintsService,
   ],
   bootstrap: [AppComponent]
 })

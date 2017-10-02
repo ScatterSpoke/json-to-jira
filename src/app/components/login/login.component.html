@@ -6,7 +6,7 @@
     </md-error>
   </md-form-field>
   <md-form-field>
-    <input mdInput placeholder="Password" formControlName="password">
+    <input mdInput type="password" placeholder="Password" formControlName="password">
     <md-error *ngIf="formGroup.controls['password'].hasError('required')">
       Password is <strong>required</strong>
     </md-error>

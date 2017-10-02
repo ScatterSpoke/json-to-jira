@@ -1,8 +1,19 @@
 <md-spinner [class.hidden]="authorized"></md-spinner>
-<form [class.hidden]="!authorized" [formGroup]="formGroup">
-  <div> Select project </div>
+<form [class.hidden]="!authorized" [formGroup]="formGroup" (ngSubmit)="submit()">
+  <md-select placeholder="Project" formControlName="projectId">
+    <md-option *ngFor="let project of projects" [value]="project.id">{{ project.name }}</md-option>
+  </md-select>
+  <md-select placeholder="Issue Type" formControlName="issueTypeId">
+    <md-option *ngFor="let issueType of issueTypes" [value]="issueType.id">{{ issueType.name }}</md-option>
+  </md-select>
+  <md-select placeholder="Rapid View" formControlName="rapidViewId" (change)="onRapidViewSelect()">
+    <md-option *ngFor="let rapidView of rapidViews" [value]="rapidView.id">{{ rapidView.name }}</md-option>
+  </md-select>
+  <md-select placeholder="Sprint" formControlName="sprintId">
+    <md-option *ngFor="let sprint of sprints" [value]="sprint.id">{{ sprint.name }}</md-option>
+  </md-select>
   <div class="actions">
     <button md-raised-button color="primary" mdStepperNext>Next</button>
-    <button #backButton md-button mdStepperPrevious>Back</button>
+    <button (click)="onBack()" #backButton md-button mdStepperPrevious>Back</button>
   </div>
 </form>

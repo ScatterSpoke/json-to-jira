@@ -2,3 +2,19 @@ md-spinner {
   margin-left: auto;
   margin-right: auto;
 }
+
+form {
+  display: block;
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+
+  md-select {
+    display: block;
+    margin-bottom: 15px;
+  }
+
+  .actions {
+    margin-top: 30px;
+  }
+}

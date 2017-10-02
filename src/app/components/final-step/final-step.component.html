@@ -1,0 +1,12 @@
+<md-spinner [class.hidden]="!issuesService.processingBatch"></md-spinner>
+<div class="final-step" [class.hidden]="issuesService.processingBatch">
+  <h4> The following issues were created on JIRA </h4>
+  <md-list>
+    <md-list-item *ngFor="let issue of issues" >
+      <a [href]="issue.self"> {{ issue.key }} </a>
+    </md-list-item>
+  </md-list>
+  <div>
+    <button md-raised-button mdStepperPrevious>Back</button>
+  </div>
+</div>

@@ -7,15 +7,12 @@
     <ng-template mdStepLabel>Credentials</ng-template>
     <app-login [formGroup]="loginFormGroup"></app-login>
   </md-step>
-  <md-step>
+  <md-step [stepControl]="projectsFormGroup">
     <ng-template mdStepLabel>Choose Project</ng-template>
-    <app-projects [formGroup]="loginFormGroup"></app-projects>
+    <app-projects [formGroup]="projectsFormGroup"></app-projects>
   </md-step>
   <md-step>
     <ng-template mdStepLabel>Done</ng-template>
-    You are now done.
-    <div>
-      <button md-button mdStepperPrevious>Back</button>
-    </div>
+    <app-final-step></app-final-step>
   </md-step>
 </md-horizontal-stepper>
