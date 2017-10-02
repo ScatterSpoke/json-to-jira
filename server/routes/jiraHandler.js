@@ -1,6 +1,39 @@
 const config = require('./jiraConfig.json');
 const JiraApi = require('jira').JiraApi;
 
+JiraApi.prototype.listSprints = function (rapidViewId, callback) {
+  var options = {
+    rejectUnauthorized: this.strictSSL,
+    uri: this.makeUri('/sprintquery/' + rapidViewId, 'rest/greenhopper/'),
+    method: 'GET',
+    json:true
+  };
+
+  this.doRequest(options, function(error, response) {
+
+    if (error) {
+      callback(error, null);
+      return;
+    }
+
+    if (response.statusCode === 404) {
+      callback('Invalid URL');
+      return;
+    }
+
+    if (response.statusCode !== 200) {
+      callback(response.statusCode + ': Unable to connect to JIRA during sprints search.');
+      return;
+    }
+
+    if (response.body !== null) {
+      callback(null, response.body.sprints);
+      return;
+    }
+
+  });
+};
+
 JiraApi.prototype.listRapidViews = function(callback) {
   var options = {
     rejectUnauthorized: this.strictSSL,
