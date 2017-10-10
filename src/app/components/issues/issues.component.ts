@@ -36,4 +36,8 @@ export class IssuesComponent implements OnInit {
   exportToJira() {
     this.issuesService.currentIssues = this.issues;
   }
+
+  exportToTrello() {
+    console.log('exporting to Trello');
+  }
 }

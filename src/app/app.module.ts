@@ -25,10 +25,11 @@ import { IssuesService } from './services/issues.service';
 import { StepperComponent } from './components/stepper/stepper.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { FinalStepComponent } from './components/final-step/final-step.component';
-import {ProjectsService} from "./services/projects.service";
-import {IssueTypesService} from "./services/issue-types.service";
-import {RapidViewsService} from "./services/rapid-views.service";
-import {SprintsService} from "./services/sprints.service";
+import {ProjectsService} from './services/projects.service';
+import {IssueTypesService} from './services/issue-types.service';
+import {RapidViewsService} from './services/rapid-views.service';
+import {SprintsService} from './services/sprints.service';
+import {ScriptService} from './services/script.service';
 
 @NgModule({
   declarations: [
@@ -70,6 +71,7 @@ import {SprintsService} from "./services/sprints.service";
     IssueTypesService,
     RapidViewsService,
     SprintsService,
+    ScriptService,
   ],
   bootstrap: [AppComponent]
 })
