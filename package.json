@@ -6,6 +6,7 @@
     "ng": "ng",
     "start": "ng serve",
     "dev": "ng serve --port=4205",
+    "demo": "ng serve --port=4205 --host=0.0.0.0 --disable-host-check",
     "server": "node server",
     "dev-server": "nodemon server",
     "build": "ng build",
