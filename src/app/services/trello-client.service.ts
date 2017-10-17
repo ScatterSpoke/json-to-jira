@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import {ScriptService} from './script.service';
 import {DocumentScript} from '../models/document-script';
 import {environment} from '../../environments/environment';
+import {ITrelloList} from "../models/i-trello-list";
+import {ITrelloBoard} from "../models/i-trello-board";
+import {ICard} from "../models/i-card";
 
 declare let Trello: any;
 
@@ -28,6 +31,24 @@ export class TrelloClientService {
         success: resolve,
         error: reject
       });
+    });
+  }
+
+  getBoards(): Promise<ITrelloBoard[]> {
+    return new Promise((resolve) => {
+      Trello.get('/members/me/boards', resolve);
+    });
+  }
+
+  getLists(boardId): Promise<ITrelloList[]> {
+    return new Promise((resolve) => {
+      Trello.get(`/boards/${boardId}/lists`, resolve);
+    });
+  }
+
+  createCard(card: ICard): Promise<ITrelloList[]> {
+    return new Promise((resolve) => {
+      Trello.post('/cards/', card, resolve);
     });
   }
 }
