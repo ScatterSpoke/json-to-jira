@@ -45,10 +45,12 @@ export class IssuesComponent implements OnInit {
   }
 
   exportToTrello() {
-    this.projectPlatformService.setTrello();
     this.issuesService.currentIssues = this.issues;
     this.trelloClientService.authorize().then((t) => {
       this.stepperComponent.mdStepper.selectedIndex = 2;
+      this.projectPlatformService.setTrello();
+    }).catch((err) => {
+      console.log(err);
     });
   }
 }
