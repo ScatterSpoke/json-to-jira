@@ -13,12 +13,8 @@ import {environment} from '../../../environments/environment';
 export class HomeComponent implements OnInit {
 
   constructor(
-    public scriptService: ScriptService
   ) { }
 
   ngOnInit() {
-    this.scriptService
-      .load(new DocumentScript('trello', `https://api.trello.com/1/client.js?key=${environment.trelloApiKey}`))
-      .subscribe((s) => console.log(s) );
   }
 }

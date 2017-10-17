@@ -30,6 +30,10 @@ import {IssueTypesService} from './services/issue-types.service';
 import {RapidViewsService} from './services/rapid-views.service';
 import {SprintsService} from './services/sprints.service';
 import {ScriptService} from './services/script.service';
+import {ProjectPlatformService} from './services/project-platform.service';
+import {TrelloClientService} from './services/trello-client.service';
+import { TrelloProjectsComponent } from './components/trello-projects/trello-projects.component';
+import { ProjectsWrapperComponent } from './components/projects-wrapper/projects-wrapper.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +44,9 @@ import {ScriptService} from './services/script.service';
     IssuesComponent,
     StepperComponent,
     ProjectsComponent,
-    FinalStepComponent
+    FinalStepComponent,
+    TrelloProjectsComponent,
+    ProjectsWrapperComponent
   ],
   imports: [
     FormsModule,
@@ -72,6 +78,8 @@ import {ScriptService} from './services/script.service';
     RapidViewsService,
     SprintsService,
     ScriptService,
+    TrelloClientService,
+    ProjectPlatformService,
   ],
   bootstrap: [AppComponent]
 })

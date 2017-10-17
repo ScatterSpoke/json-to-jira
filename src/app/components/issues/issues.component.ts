@@ -3,6 +3,9 @@ import {Issue} from "../../models/issue";
 import {FormGroup, NgForm} from "@angular/forms";
 import {MdSnackBar} from "@angular/material";
 import {IssuesService} from "../../services/issues.service";
+import {StepperComponent} from "../stepper/stepper.component";
+import {ProjectPlatformService} from "../../services/project-platform.service";
+import {TrelloClientService} from "../../services/trello-client.service";
 
 @Component({
   selector: 'app-issues',
@@ -12,11 +15,14 @@ import {IssuesService} from "../../services/issues.service";
 export class IssuesComponent implements OnInit {
   @ViewChild('f') form: NgForm;
   @Input() formGroup: FormGroup;
+  @Input() stepperComponent: StepperComponent;
   model: Issue = new Issue();
   issues: Issue[] = [];
 
   constructor(
     public issuesService: IssuesService,
+    public trelloClientService: TrelloClientService,
+    public projectPlatformService: ProjectPlatformService,
   ) { }
 
   ngOnInit() {
@@ -34,10 +40,15 @@ export class IssuesComponent implements OnInit {
   }
 
   exportToJira() {
+    this.projectPlatformService.setJira();
     this.issuesService.currentIssues = this.issues;
   }
 
   exportToTrello() {
-    console.log('exporting to Trello');
+    this.projectPlatformService.setTrello();
+    this.issuesService.currentIssues = this.issues;
+    this.trelloClientService.authorize().then((t) => {
+      this.stepperComponent.mdStepper.selectedIndex = 2;
+    });
   }
 }

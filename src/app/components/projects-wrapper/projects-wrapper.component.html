@@ -1,0 +1,2 @@
+<app-projects *ngIf="projectPlatformService.isJira()" [formGroup]="formGroup"></app-projects>
+<app-trello-projects *ngIf="projectPlatformService.isTrello()" [formGroup]="formGroup"></app-trello-projects>

@@ -1,7 +1,7 @@
-<md-horizontal-stepper [linear]="isLinear">
+<md-horizontal-stepper #mdStepper [linear]="isLinear">
   <md-step [stepControl]="issuesFormGroup">
     <ng-template mdStepLabel>Issues</ng-template>
-    <app-issues [formGroup]="issuesFormGroup"></app-issues>
+    <app-issues [formGroup]="issuesFormGroup" [stepperComponent]="this"></app-issues>
   </md-step>
   <md-step [stepControl]="loginFormGroup">
     <ng-template mdStepLabel>Credentials</ng-template>
@@ -9,7 +9,7 @@
   </md-step>
   <md-step [stepControl]="projectsFormGroup">
     <ng-template mdStepLabel>Choose Project</ng-template>
-    <app-projects [formGroup]="projectsFormGroup"></app-projects>
+    <app-projects-wrapper [formGroup]="projectsFormGroup"></app-projects-wrapper>
   </md-step>
   <md-step>
     <ng-template mdStepLabel>Done</ng-template>

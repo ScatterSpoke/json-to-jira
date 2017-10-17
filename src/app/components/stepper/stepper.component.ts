@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {MatHorizontalStepper} from '@angular/material';
+import {ProjectPlatform} from "../../models/project-platform.enum";
 
 @Component({
   selector: 'app-stepper',
@@ -11,6 +13,7 @@ export class StepperComponent implements OnInit {
   issuesFormGroup: FormGroup;
   loginFormGroup: FormGroup;
   projectsFormGroup: FormGroup;
+  @ViewChild('mdStepper') mdStepper: MatHorizontalStepper;
 
   constructor(private _formBuilder: FormBuilder) { }
 

@@ -1,0 +1,13 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()">
+  <md-select placeholder="Board" formControlName="projectId" (change)="onBoardSelect()">
+    <md-option *ngFor="let board of boards" [value]="board.id">{{ board.name }}</md-option>
+  </md-select>
+  <md-select placeholder="Lists" formControlName="issueTypeId">
+    <md-option *ngFor="let list of lists" [value]="list.id">{{ list.name }}</md-option>
+  </md-select>
+  <input ngModel="1" formControlName="rapidViewId" type="hidden">
+  <input ngModel="1" formControlName="sprintId" type="hidden">
+  <div class="actions">
+    <button md-raised-button color="primary" mdStepperNext>Next</button>
+  </div>
+</form>

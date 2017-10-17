@@ -26,7 +26,7 @@
   <form [formGroup]="formGroup">
     <div class="actions">
       <button mdStepperNext [disabled]="issues.length === 0" (click)="exportToJira()" md-raised-button color="primary">Export to JIRA</button>
-      <button mdStepperNext [disabled]="issues.length === 0" (click)="exportToTrello()" md-raised-button color="primary">Export to Trello</button>
+      <button [disabled]="issues.length === 0" (click)="exportToTrello()" md-raised-button color="primary">Export to Trello</button>
     </div>
   </form>
 </div>
