@@ -1,3 +1,6 @@
+import sharedEnvironment from './base';
+
 export default {
-  apiUrl: 'http://localhost:3000/api/'
+  ...sharedEnvironment,
+  apiUrl: 'http://localhost:3000/api/',
 };
