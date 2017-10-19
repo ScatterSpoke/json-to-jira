@@ -16,7 +16,7 @@ export class TrelloClientService {
   ) {
     this.scriptService
       .load(new DocumentScript('trello', `https://api.trello.com/1/client.js?key=${environment.trelloApiKey}`))
-      .subscribe((s) => console.log(s) );
+      .subscribe(() => Trello.deauthorize() );
   }
 
   authorize(): Promise<string> {
