@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, ViewChild} from '@angular/core';
+import {Component, Input, NgZone, OnInit, ViewChild} from '@angular/core';
 import {Issue} from "../../models/issue";
 import {FormGroup, NgForm} from "@angular/forms";
 import {MdSnackBar} from "@angular/material";
@@ -23,6 +23,7 @@ export class IssuesComponent implements OnInit {
     public issuesService: IssuesService,
     public trelloClientService: TrelloClientService,
     public projectPlatformService: ProjectPlatformService,
+    private zone: NgZone
   ) { }
 
   ngOnInit() {
@@ -47,7 +48,7 @@ export class IssuesComponent implements OnInit {
   exportToTrello() {
     this.issuesService.currentIssues = this.issues;
     this.trelloClientService.authorize().then((t) => {
-      this.stepperComponent.mdStepper.selectedIndex = 2;
+      this.stepperComponent.mdStepper['_selectedIndex'] = 2;
       this.projectPlatformService.setTrello();
     }).catch((err) => {
       console.log(err);
