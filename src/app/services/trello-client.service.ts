@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import {ScriptService} from './script.service';
 import {DocumentScript} from '../models/document-script';
 import {environment} from '../../environments/environment';
-import {ITrelloList} from "../models/i-trello-list";
-import {ITrelloBoard} from "../models/i-trello-board";
-import {ICard} from "../models/i-card";
+import {ITrelloList} from '../models/i-trello-list';
+import {ITrelloBoard} from '../models/i-trello-board';
+import {ICard} from '../models/i-card';
 
 declare let Trello: any;
 

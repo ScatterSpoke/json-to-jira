@@ -7,5 +7,6 @@ import shared from './shared';
 
 export const environment = {
   ...shared,
-  production: false
+  production: false,
+  trelloApiKey: '82c68aad94509ad24c1a7be8e5fed97c5edae61a328394b3d7a052a13241ec94'
 };
