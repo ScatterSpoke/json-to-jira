@@ -1,19 +1,19 @@
-<md-spinner [class.hidden]="authorized"></md-spinner>
+<mat-spinner [class.hidden]="authorized"></mat-spinner>
 <form [class.hidden]="!authorized" [formGroup]="formGroup" (ngSubmit)="submit()">
-  <md-select placeholder="Project" formControlName="projectId">
-    <md-option *ngFor="let project of projects" [value]="project.id">{{ project.name }}</md-option>
-  </md-select>
-  <md-select placeholder="Issue Type" formControlName="issueTypeId">
-    <md-option *ngFor="let issueType of issueTypes" [value]="issueType.id">{{ issueType.name }}</md-option>
-  </md-select>
-  <md-select placeholder="Rapid View" formControlName="rapidViewId" (change)="onRapidViewSelect()">
-    <md-option *ngFor="let rapidView of rapidViews" [value]="rapidView.id">{{ rapidView.name }}</md-option>
-  </md-select>
-  <md-select placeholder="Sprint" formControlName="sprintId">
-    <md-option *ngFor="let sprint of sprints" [value]="sprint.id">{{ sprint.name }}</md-option>
-  </md-select>
+  <mat-select placeholder="Project" formControlName="projectId">
+    <mat-option *ngFor="let project of projects" [value]="project.id">{{ project.name }}</mat-option>
+  </mat-select>
+  <mat-select placeholder="Issue Type" formControlName="issueTypeId">
+    <mat-option *ngFor="let issueType of issueTypes" [value]="issueType.id">{{ issueType.name }}</mat-option>
+  </mat-select>
+  <mat-select placeholder="Rapid View" formControlName="rapidViewId" (change)="onRapidViewSelect()">
+    <mat-option *ngFor="let rapidView of rapidViews" [value]="rapidView.id">{{ rapidView.name }}</mat-option>
+  </mat-select>
+  <mat-select placeholder="Sprint" formControlName="sprintId">
+    <mat-option *ngFor="let sprint of sprints" [value]="sprint.id">{{ sprint.name }}</mat-option>
+  </mat-select>
   <div class="actions">
-    <button md-raised-button color="primary" mdStepperNext>Next</button>
-    <button (click)="onBack()" #backButton md-button mdStepperPrevious>Back</button>
+    <button mat-raised-button color="primary" matStepperNext>Next</button>
+    <button (click)="onBack()" #backButton mat-button matStepperPrevious>Back</button>
   </div>
 </form>

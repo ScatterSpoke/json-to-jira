@@ -1,18 +1,18 @@
 <form [formGroup]="formGroup"  (ngSubmit)="login()">
-  <md-form-field>
-    <input mdInput placeholder="Username" formControlName="username">
-    <md-error *ngIf="formGroup.controls['username'].hasError('required')">
+  <mat-form-field>
+    <input matInput placeholder="Username" formControlName="username">
+    <mat-error *ngIf="formGroup.controls['username'].hasError('required')">
       Username is <strong>required</strong>
-    </md-error>
-  </md-form-field>
-  <md-form-field>
-    <input mdInput type="password" placeholder="Password" formControlName="password">
-    <md-error *ngIf="formGroup.controls['password'].hasError('required')">
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput type="password" placeholder="Password" formControlName="password">
+    <mat-error *ngIf="formGroup.controls['password'].hasError('required')">
       Password is <strong>required</strong>
-    </md-error>
-  </md-form-field>
+    </mat-error>
+  </mat-form-field>
   <div class="actions">
-    <button md-raised-button color="primary" mdStepperNext>Login</button>
-    <button md-button mdStepperPrevious>Back</button>
+    <button mat-raised-button color="primary" matStepperNext>Login</button>
+    <button mat-button matStepperPrevious>Back</button>
   </div>
 </form>

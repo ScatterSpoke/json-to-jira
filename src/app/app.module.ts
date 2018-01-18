@@ -8,8 +8,8 @@ import { HomeComponent } from './components/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import { MaterialModule } from '@angular/material';
 import {
-  MdButtonModule, MdCardModule, MdMenuModule,
-  MdToolbarModule, MdIconModule, MatProgressSpinnerModule,
+  MatCardModule, MatMenuModule,
+  MatToolbarModule, MatProgressSpinnerModule,
   MatButtonModule, MatInputModule, MatIconModule, MatListModule,
   MatSnackBarModule, MatStepperModule, MatSelectModule
 } from '@angular/material';
@@ -25,10 +25,10 @@ import { IssuesService } from './services/issues.service';
 import { StepperComponent } from './components/stepper/stepper.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { FinalStepComponent } from './components/final-step/final-step.component';
-import {ProjectsService} from "./services/projects.service";
-import {IssueTypesService} from "./services/issue-types.service";
-import {RapidViewsService} from "./services/rapid-views.service";
-import {SprintsService} from "./services/sprints.service";
+import {ProjectsService} from './services/projects.service';
+import {IssueTypesService} from './services/issue-types.service';
+import {RapidViewsService} from './services/rapid-views.service';
+import {SprintsService} from './services/sprints.service';
 
 @NgModule({
   declarations: [
@@ -47,11 +47,11 @@ import {SprintsService} from "./services/sprints.service";
     BrowserModule,
     HttpModule,
     BrowserAnimationsModule,
-    MdButtonModule, // Add material components to imports array
-    MdCardModule,
-    MdMenuModule,
-    MdToolbarModule,
-    MdIconModule,
+    MatButtonModule, // Add material components to imports array
+    MatCardModule,
+    MatMenuModule,
+    MatToolbarModule,
+    MatIconModule,
     MatSnackBarModule,
     MatProgressSpinnerModule,
     MatButtonModule,

@@ -1,31 +1,31 @@
 <div class="issues">
   <div *ngIf="issues.length == 0" class="no-issues"> No JIRA issues </div>
-  <md-nav-list>
-    <md-list-item *ngFor="let issue of issues">
+  <mat-nav-list>
+    <mat-list-item *ngFor="let issue of issues">
       {{ issue.text }}
       <div class="button-actions">
-        <button md-icon-button (click)="remove(issue)">
-          <md-icon class="md-24">delete</md-icon>
+        <button mat-icon-button (click)="remove(issue)">
+          <mat-icon class="mat-24">delete</mat-icon>
         </button>
       </div>
-    </md-list-item>
-  </md-nav-list>
+    </mat-list-item>
+  </mat-nav-list>
   <br/>
   <form class="example-form" (ngSubmit)="f.form.valid && addIssue()" #f="ngForm">
-    <md-form-field class="example-full-width">
-      <input name="text" mdInput placeholder="Issue" [(ngModel)]="model.text" #text="ngModel" required>
-      <md-error *ngIf="f.submitted && !text.valid">
+    <mat-form-field class="example-full-width">
+      <input name="text" matInput placeholder="Issue" [(ngModel)]="model.text" #text="ngModel" required>
+      <mat-error *ngIf="f.submitted && !text.valid">
         Description required
-      </md-error>
-    </md-form-field>
-    <button md-mini-fab>
-      <md-icon class="md-24">add</md-icon>
+      </mat-error>
+    </mat-form-field>
+    <button mat-mini-fab>
+      <mat-icon class="mat-24">add</mat-icon>
     </button>
   </form>
   <br/>
   <form [formGroup]="formGroup">
     <div class="actions">
-      <button mdStepperNext [disabled]="issues.length === 0" (click)="exportToJira()" md-raised-button color="primary">Export to JIRA</button>
+      <button matStepperNext [disabled]="issues.length === 0" (click)="exportToJira()" mat-raised-button color="primary">Export to JIRA</button>
     </div>
   </form>
 </div>
