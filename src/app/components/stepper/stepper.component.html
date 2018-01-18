@@ -1,18 +1,18 @@
-<md-horizontal-stepper #mdStepper [linear]="isLinear">
-  <md-step [stepControl]="issuesFormGroup">
-    <ng-template mdStepLabel>Issues</ng-template>
-    <app-issues [formGroup]="issuesFormGroup" [stepperComponent]="this"></app-issues>
-  </md-step>
-  <md-step [stepControl]="loginFormGroup">
-    <ng-template mdStepLabel>Credentials</ng-template>
+<mat-horizontal-stepper [linear]="isLinear">
+  <mat-step [stepControl]="issuesFormGroup">
+    <ng-template matStepLabel>Issues</ng-template>
+    <app-issues [formGroup]="issuesFormGroup"></app-issues>
+  </mat-step>
+  <mat-step [stepControl]="loginFormGroup">
+    <ng-template matStepLabel>Credentials</ng-template>
     <app-login [formGroup]="loginFormGroup"></app-login>
-  </md-step>
-  <md-step [stepControl]="projectsFormGroup">
-    <ng-template mdStepLabel>Choose Project</ng-template>
-    <app-projects-wrapper [formGroup]="projectsFormGroup"></app-projects-wrapper>
-  </md-step>
-  <md-step>
-    <ng-template mdStepLabel>Done</ng-template>
+  </mat-step>
+  <mat-step [stepControl]="projectsFormGroup">
+    <ng-template matStepLabel>Choose Project</ng-template>
+    <app-projects [formGroup]="projectsFormGroup"></app-projects>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
     <app-final-step></app-final-step>
-  </md-step>
-</md-horizontal-stepper>
+  </mat-step>
+</mat-horizontal-stepper>

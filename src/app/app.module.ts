@@ -8,8 +8,8 @@ import { HomeComponent } from './components/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import { MaterialModule } from '@angular/material';
 import {
-  MdButtonModule, MdCardModule, MdMenuModule,
-  MdToolbarModule, MdIconModule, MatProgressSpinnerModule,
+  MatCardModule, MatMenuModule,
+  MatToolbarModule, MatProgressSpinnerModule,
   MatButtonModule, MatInputModule, MatIconModule, MatListModule,
   MatSnackBarModule, MatStepperModule, MatSelectModule
 } from '@angular/material';
@@ -54,11 +54,11 @@ import { ProjectsWrapperComponent } from './components/projects-wrapper/projects
     BrowserModule,
     HttpModule,
     BrowserAnimationsModule,
-    MdButtonModule, // Add material components to imports array
-    MdCardModule,
-    MdMenuModule,
-    MdToolbarModule,
-    MdIconModule,
+    MatButtonModule, // Add material components to imports array
+    MatCardModule,
+    MatMenuModule,
+    MatToolbarModule,
+    MatIconModule,
     MatSnackBarModule,
     MatProgressSpinnerModule,
     MatButtonModule,

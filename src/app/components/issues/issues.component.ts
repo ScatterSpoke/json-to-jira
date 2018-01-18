@@ -1,11 +1,11 @@
 import {Component, Input, NgZone, OnInit, ViewChild} from '@angular/core';
-import {Issue} from "../../models/issue";
-import {FormGroup, NgForm} from "@angular/forms";
-import {MdSnackBar} from "@angular/material";
-import {IssuesService} from "../../services/issues.service";
-import {StepperComponent} from "../stepper/stepper.component";
-import {ProjectPlatformService} from "../../services/project-platform.service";
-import {TrelloClientService} from "../../services/trello-client.service";
+import {MatSnackBar} from '@angular/material';
+import {StepperComponent} from '../stepper/stepper.component';
+import {ProjectPlatformService} from '../../services/project-platform.service';
+import {TrelloClientService} from '../../services/trello-client.service';
+import {Issue} from '../../models/issue';
+import {FormGroup, NgForm} from '@angular/forms';
+import {IssuesService} from '../../services/issues.service';
 
 @Component({
   selector: 'app-issues',

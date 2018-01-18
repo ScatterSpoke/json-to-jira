@@ -1,19 +1,19 @@
 import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
 import {FormGroup} from '@angular/forms';
 import {AuthenticationService} from '../../services/authentication.service';
-import {MdButton} from '@angular/material/button';
-import {ProjectsService} from "../../services/projects.service";
-import {Subscription} from "rxjs/Subscription";
-import {IssueTypesService} from "../../services/issue-types.service";
-import {RapidViewsService} from "../../services/rapid-views.service";
-import {SprintsService} from "../../services/sprints.service";
-import {IJiraProject} from "../../models/i-jira-project";
-import {IJiraIssueType} from "../../models/i-jira-issue-type";
-import {IJiraSprint} from "../../models/i-jira-sprint";
-import {IJiraRapidView} from "../../models/i-jira-rapid-view";
+import {MatButton} from '@angular/material/button';
+import {ProjectsService} from '../../services/projects.service';
+import {Subscription} from 'rxjs/Subscription';
+import {IssueTypesService} from '../../services/issue-types.service';
+import {RapidViewsService} from '../../services/rapid-views.service';
+import {SprintsService} from '../../services/sprints.service';
+import {IJiraProject} from '../../models/i-jira-project';
+import {IJiraIssueType} from '../../models/i-jira-issue-type';
+import {IJiraSprint} from '../../models/i-jira-sprint';
+import {IJiraRapidView} from '../../models/i-jira-rapid-view';
 
 import 'rxjs/add/operator/toPromise';
-import {IssuesService} from "../../services/issues.service";
+import {IssuesService} from '../../services/issues.service';
 
 @Component({
   selector: 'app-projects',
@@ -22,7 +22,7 @@ import {IssuesService} from "../../services/issues.service";
 })
 export class ProjectsComponent implements OnInit {
   @Input() formGroup: FormGroup;
-  @ViewChild('backButton') backButton: MdButton;
+  @ViewChild('backButton') backButton: MatButton;
   authorized = false;
   subscriptions: Subscription[] = [];
   projects: IJiraProject[] = [];

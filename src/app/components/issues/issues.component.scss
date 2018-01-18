@@ -18,13 +18,13 @@
 }
 
 .actions {
-  md-spinner {
+  mat-spinner {
     width: 20px;
     height: 20px;
     margin-right: 10px;
   }
 
-  md-spinner, button {
+  mat-spinner, button {
     display: inline-block;
     vertical-align: middle;
   }

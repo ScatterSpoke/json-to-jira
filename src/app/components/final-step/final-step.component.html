@@ -1,12 +1,12 @@
-<md-spinner [class.hidden]="!issuesService.processingBatch"></md-spinner>
+<mat-spinner [class.hidden]="!issuesService.processingBatch"></mat-spinner>
 <div class="final-step" [class.hidden]="issuesService.processingBatch">
   <h4> The following issues were created on JIRA </h4>
-  <md-list>
-    <md-list-item *ngFor="let issue of issues" >
+  <mat-list>
+    <mat-list-item *ngFor="let issue of issues" >
       <a [href]="issue.self"> {{ issue.key }} </a>
-    </md-list-item>
-  </md-list>
+    </mat-list-item>
+  </mat-list>
   <div>
-    <button md-raised-button mdStepperPrevious>Back</button>
+    <button mat-raised-button matStepperPrevious>Back</button>
   </div>
 </div>
